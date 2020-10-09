@@ -3,7 +3,7 @@ import QuizQuestionButton from './QuizQuestionButton.js';
 
 class QuizQuestion extends Component {
 
-    render() {
+    render() { 
         return (
             <main>
                 <section>
@@ -12,12 +12,22 @@ class QuizQuestion extends Component {
                 </p>
                 </section>
                 <section className="buttons">
+                
                 <ul>
-                    <QuizQuestionButton button_text={this.props.quiz_question.answer_options[0]}/>
+                    {this.props.quiz_question.answer_options.map((answer_options, index) => (
+                        <li key={index}>
+                            <QuizQuestionButton button_text={answer_options} />
+                        </li>
+                    ))}
                 </ul>
                 </section>
             </main>
         );
+    }    
+
+    handleClick (button_text) {
+        console.log(button_text);
+        //console.log(button_text);
     }
 }
 
