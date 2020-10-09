@@ -1,7 +1,14 @@
 import React, { Component } from 'react'
 import QuizQuestionButton from './QuizQuestionButton.js';
 
-class QuizQuestion extends Component {
+class QuizQuestion extends Component {   
+
+    handleClick (buttonText) {        
+        console.log("handleClick in Question: " + buttonText);
+        if (buttonText === this.props.quiz_question.answer) {
+            this.props.showNextQuestionHandler()
+        }
+    }
 
     render() { 
         return (
@@ -21,14 +28,7 @@ class QuizQuestion extends Component {
                 </section>
             </main>
         );
-    }    
-
-    handleClick (buttonText) {        
-        console.log("handleClick in Question: " + buttonText);
-        if (buttonText === this.props.quiz_question.answer) {
-            this.props.showNextQuestionHandler()
-        }
-    }
+    } 
 }
 
 export default QuizQuestion
